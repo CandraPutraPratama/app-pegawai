@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
-    //
+    protected $filliable = [
+        'nama_lengkap',
+        'email',
+        'nomor_telepon',
+        'alamat',
+        'tanggal_masuk',
+        'status',
+    ];
 }
