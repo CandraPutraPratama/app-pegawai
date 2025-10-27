@@ -8,7 +8,6 @@ class Salary extends Model
 {
     protected $table = 'salaries';
 
-    // Field yang ada di tabel, termasuk FK
     protected $fillable = [
         'karyawan_id',
         'bulan',
@@ -18,7 +17,6 @@ class Salary extends Model
         'total_gaji',
     ];
 
-    // Relasi ke tabel employees (penting buat READ)
     public function employee()
     {
         return $this->belongsTo(Employee::class, 'karyawan_id');
