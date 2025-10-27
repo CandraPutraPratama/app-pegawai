@@ -7,20 +7,17 @@ use Illuminate\Http\Request;
 
 class PositionController extends Controller
 {
-    // READ (Tampilkan daftar Jabatan)
     public function index()
     {
         $positions = Position::latest()->paginate(10);
         return view('positions.index', compact('positions'));
     }
 
-    // CREATE (Tampilkan Form)
     public function create()
     {
         return view('positions.create');
     }
 
-    // STORE (Simpan data baru)
     public function store(Request $request)
     {
         $request->validate([
@@ -32,13 +29,11 @@ class PositionController extends Controller
         return redirect()->route('positions.index')->with('success', 'Jabatan berhasil ditambahkan!');
     }
 
-    // EDIT (Tampilkan Form Edit)
     public function edit(Position $position)
     {
         return view('positions.edit', compact('position'));
     }
 
-    // UPDATE (Update data)
     public function update(Request $request, Position $position)
     {
         $request->validate([
@@ -50,7 +45,6 @@ class PositionController extends Controller
         return redirect()->route('positions.index')->with('success', 'Jabatan berhasil diupdate!');
     }
 
-    // DELETE (Hapus data)
     public function destroy(Position $position)
     {
         $position->delete();
