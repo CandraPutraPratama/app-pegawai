@@ -14,7 +14,7 @@
 
 <div class="mb-3">
     <label for="bulan" class="form-label fw-semibold">Periode Bulan/Tahun (Contoh: Okt 2025)</label>
-    <input type="text" class="form-control @error('bulan') is-invalid @enderror" id="bulan" name="bulan" placeholder="Contoh: Oktober 2025"
+    <input type="text" class="form-control @error('bulan') is-invalid @enderror" id="bulan" name="bulan" placeholder="Contoh: Okt 2025"
         value="{{ old('bulan', $salary->bulan ?? '') }}" required>
     @error('bulan') <div class="invalid-feedback">{{ $message }}</div> @enderror
 </div>

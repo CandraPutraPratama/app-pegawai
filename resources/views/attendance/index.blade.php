@@ -35,7 +35,17 @@
                             <td>{{ $attendance->waktu_masuk ?? '-' }}</td>
                             <td>{{ $attendance->waktu_keluar ?? '-' }}</td>
                             <td>
-                                <span class="status-badge bg-{{ $attendance->status_absensi == 'hadir' ? 'success' : ($attendance->status_absensi == 'izin' ? 'info' : 'danger') }}">
+                                @php
+                                $badge_status = $attendance->status_absensi;
+                                $badge_class = match ($badge_status) {
+                                'hadir' => 'status-hadir',
+                                'izin' => 'status-izin',
+                                'alpha' => 'status-alpha',
+                                'sakit' => 'status-sakit',
+                                default => 'status-default',
+                                };
+                                @endphp
+                                <span class="status-badge {{ $badge_class }}">
                                     {{ ucfirst($attendance->status_absensi) }}
                                 </span>
                             </td>

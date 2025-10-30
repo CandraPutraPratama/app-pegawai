@@ -54,7 +54,7 @@
     <footer class="custom-footer">
         <div class="container text-center">
             <p class="mb-0">
-                <i class="bi bi-c-circle me-1"></i> 2025 Data Pegawai. All Rights Reserved.
+                <i class="bi bi-c-circle me-1"></i> 2025 Data Pegawai. Candra Putra Pratama
             </p>
         </div>
     </footer>
@@ -62,7 +62,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Show success alert
         function showSuccessAlert(message) {
             const alert = document.getElementById('successAlert');
             const messageSpan = document.getElementById('successMessage');
@@ -74,7 +73,6 @@
             }, 5000);
         }
 
-        // Cek dan tampilkan alert dari session (jika ada)
         @if(session('success'))
         showSuccessAlert("{{ session('success') }}");
         @endif

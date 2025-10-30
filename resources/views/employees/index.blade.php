@@ -41,7 +41,6 @@
                             <td>
                                 <!-- dimasukin waktu buat tambah fitur, waktu UAS -->
                                 <!-- <div class="d-flex align-items-center">
-                                    {{-- Lo bisa hitung inisial dari nama lengkap di sini --}}
                                     <div class="avatar-circle bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px; font-weight: 600;">
                                         {{ substr($employee->nama_lengkap, 0, 2) }}
                                     </div> -->
@@ -54,7 +53,14 @@
                             <td>{{ $employee->position->nama_jabatan ?? 'N/A' }}</td>
                             {{-- End Relasi --}}
                             <td>{{ $employee->tanggal_masuk }}</td>
-                            <td><span class="status-badge">{{ ucfirst($employee->status) }}</span></td>
+                            <td>
+                                @php
+                                $badge_class = ($employee->status == 'aktif') ? 'status-aktif' : 'status-nonaktif';
+                                @endphp
+                                <span class="status-badge {{ $badge_class }}">
+                                    {{ ucfirst($employee->status) }}
+                                </span>
+                            </td>
                             <td>
                                 <div class="action-buttons">
                                     <a href="{{ route('employees.show', $employee->id) }}" class="btn btn-aksi-detail btn-sm">
