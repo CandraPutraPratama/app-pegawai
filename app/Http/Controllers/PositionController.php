@@ -22,7 +22,7 @@ class PositionController extends Controller
     {
         $request->validate([
             'nama_jabatan' => 'required|string|max:100|unique:positions,nama_jabatan',
-            'gaji_pokok' => 'required|numeric|min:1000', // Gaji minimal 1000
+            'gaji_pokok' => 'required|numeric|min:1000',
         ]);
 
         Position::create($request->all());
